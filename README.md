@@ -46,14 +46,16 @@ This starter kit comes packed with essential features to get you up and running 
 
 **Lets go!!**:  
 
-```markdown
+
 ## 🚀 Quick Start Guide
 
 Get your development environment set up in minutes!
 
 ### 1️⃣ Clone the Repository
 
-```bash
+```markdown
+
+
 git clone https://github.com/ux-rsa/BossMailer.git
 cd BossMailer
 ```
