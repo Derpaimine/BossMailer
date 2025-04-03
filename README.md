@@ -23,7 +23,7 @@ Built for developers inspired by platforms like [![BossMailer.co.za](https://img
 
 ---
 
-![BossMailer Screenshot](https://www.facebook.com/photo/?fbid=981580020785596&set=a.599227605687508)
+![BossMailer Screenshot](https://github.com/ux-rsa/BossMailer/blob/main/bmfrontSCREENSHOT.JPG)
 *<p align="center">Responsive template to get you going fast!</p>*
 
 ---
