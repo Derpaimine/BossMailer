@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Base styles for your components */
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Hero section styles */
+.hero-title {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.02em;
+}
+
+/* Gradient text with underline animation */
+.hero-title span[class*="gradient"] {
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title span[class*="gradient"]::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #f59e0b, #f97316);
+  transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.hero-title:hover span[class*="gradient"]::after {
+  width: 100%;
+}
+
+/* Attention-grabbing keywords in paragraph */
+.text-xl span.font-bold {
+  position: relative;
+  display: inline-block;
+}
+
+.text-xl span.font-bold::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.text-xl:hover span.font-bold::after {
+  width: 100%;
+}
+
+/* Sequential animation for multiple keywords */
+.text-xl:hover span.font-bold:nth-child(1)::after {
+  transition-delay: 0.1s;
+}
+
+.text-xl:hover span.font-bold:nth-child(2)::after {
+  transition-delay: 0.2s;
+}
+/* Pricing section styles */
+.pricing-container {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-12;
+}
+
+.pricing-card {
+  @apply bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-6 transition-all duration-300 hover:shadow-lg hover:transform hover:scale-[1.02];
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-card-premium {
+  @apply bg-gradient-to-br from-blue-500/30 to-purple-500/30 border-yellow-300/50 transform scale-[1.03];
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.cta-button {
+  @apply px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded-md text-center transition-all duration-300;
+}
+
+.cta-button-scale {
+  @apply px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded-md text-center transition-all duration-300 transform hover:scale-105;
+}
+
+/* Animated elements */
+.call-to-action-animated {
+  @apply relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(147, 51, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0);
+  }
+}
+
+/* Video button */
+.video-play-button {
+  @apply relative flex items-center justify-center w-16 h-16 rounded-full bg-white text-blue-600 transition-all duration-300 hover:bg-blue-50;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  animation: pulse-white 2s infinite;
+}
+
+.video-play-button::before {
+  content: '';
+  @apply absolute w-5 h-5 border-t-transparent border-t-8 border-l-16 border-l-blue-600 border-b-transparent border-b-8 ml-1;
+}
+
+@keyframes pulse-white {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* Animation for content fade-in */
+.content-container {
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
