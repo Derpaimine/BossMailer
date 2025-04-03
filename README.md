@@ -39,8 +39,8 @@ This starter kit comes packed with essential features to get you up and running 
 *   🔐 **Secure Authentication:** Uses `NextAuth.js` with providers like Google, GitHub, and Email/Password.
 *   ✉️ **Transactional Emails:** Ready for SMTP, Mailgun, AWS SES, or other providers. `rgb(234, 100, 33)`
 *   🛡️ **API Rate Limiting:** Basic protection against spam and abuse.
-*   📊 **(Coming Soon/Example)** Analytics Dashboard
-*   👥 **(Coming Soon/Example)** Team Collaboration Features
+*   📊 **Built In AI Data Analyst** Analytics Dashboard
+*   👥 **Unlimited Users** Team Collaboration Features
 
 ---
 
