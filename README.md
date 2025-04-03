@@ -34,10 +34,10 @@ This starter kit comes packed with essential features to get you up and running 
 
 *   🚀 **Next.js 14:** Leverages the latest features like the App Router and Server Actions for optimal performance and developer experience.
 *   🎨 **Tailwind CSS & shadcn/ui:** Modern, utility-first styling for rapid UI development and beautiful, accessible components.
-*   💳 **Stripe Payments:** Integrated subscription handling and webhook management for monetization. (`#008CDD`)
+*   💳 **Stripe Payments:** Integrated subscription handling and webhook management for monetization. 
 *    D **Drag & Drop Email Builder:** Powered by `react-email` for intuitive campaign creation.
 *   🔐 **Secure Authentication:** Uses `NextAuth.js` with providers like Google, GitHub, and Email/Password.
-*   ✉️ **Transactional Emails:** Ready for SMTP, Mailgun, AWS SES, or other providers. `rgb(234, 100, 33)`
+*   ✉️ **Transactional Emails:** Ready for SMTP, Mailgun, AWS SES, or other providers. 
 *   🛡️ **API Rate Limiting:** Basic protection against spam and abuse.
 *   📊 **Built In AI Data Analyst** Analytics Dashboard
 *   👥 **Unlimited Users** Team Collaboration Features
