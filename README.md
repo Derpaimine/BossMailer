@@ -1,9 +1,7 @@
 🔥 BossMailer Next.js Starter Kit
 🚀 A fast, scalable, and production-ready foundation for email marketing SaaS apps
 Built for BossMailer.co.za – streamline your email marketing effortlessly.
-
-
-(Replace this with an actual screenshot from your app.)
+   
 
 ✨ Features at a Glance
 ✔ Blazing-fast Next.js 14 (App Router, Server Actions)
