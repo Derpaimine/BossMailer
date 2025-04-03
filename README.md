@@ -14,12 +14,12 @@
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 <!-- 🌎 Deployment -->
-[![Vercel Deployment](https://bossmailer.co.za)
+[![Deployment](https://img.shields.io/badge/Deployment-Live-brightgreen)](https://bossmailer.co.za)
 
 
 **A fast, scalable, and production-ready foundation for building your own email marketing SaaS app.**
 
-Built for developers inspired by platforms like [BossMailer.co.za](https://bossmailer.co.za) – streamline your path to launching an email marketing service!
+Built for developers inspired by platforms like [![BossMailer.co.za](https://img.shields.io/badge/BossMailer.co.za-Website-blue)](https://bossmailer.co.za) – streamline your path to launching an email marketing service! [![AI Powered](https://img.shields.io/badge/AI%20Powered-🤖-blueviolet)]()
 
 ---
 
