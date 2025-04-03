@@ -54,10 +54,3 @@ We welcome PRs! Check out the issues for good first contributions.
 
 📜 License
 MIT License – free to use, but attribution is appreciated.
-
-This is now a solid 9/10 README—clear, actionable, and engaging.
-For a 10/10, you just need:
-1️⃣ Real screenshots instead of placeholders
-2️⃣ A live demo link (e.g., a Vercel preview)
-
-💡 Need anything else? Let me know. 🚀
