@@ -1,5 +1,3 @@
-:
-
 # ✨ BossMailer Next.js Starter Kit 🚀
 
 <!-- 📌 Core Repo Info -->
