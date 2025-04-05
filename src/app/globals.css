@@ -1,125 +1,227 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Define root variables AFTER Tailwind base styles */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #ffffff; /* Default light mode background */
+  --foreground: #171717; /* Default light mode text */
+  /* Define fonts if you have them configured elsewhere (e.g., layout.js) */
+  /* --font-sans: var(--font-geist-sans); */
+  /* --font-mono: var(--font-geist-mono); */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Dark mode background */
+    --foreground: #ededed; /* Dark mode text */
   }
 }
 
+/* Apply base body styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif; /* Or use your --font-sans variable */
 }
 
-/* Base styles for your components */
-.backdrop-blur-lg {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
 
-/* Hero section styles */
+/* --- Custom Component Styles & Utilities --- */
+/* Wrap custom component styles in @layer components */
+@layer components {
+  /* Base styles for your components */
+  .backdrop-blur-lg {
+    /* Corrected order */
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+
+  /* Hero section styles */
 .hero-title {
-  @apply text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 relative;
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 md:mb-8 lg:mb-20 relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: -0.02em;
 }
 
-/* Gradient text with underline animation */
-.hero-title span[class*="gradient"] {
-  background-clip: text;
-  -webkit-background-clip: text;
-  position: relative;
-  display: inline-block;
-}
+  /* Gradient text with underline animation */
+  /* Find this rule inside @layer components and replace it */
+.hero-title {
+  /* Apply the non-responsive utilities */
+  @apply font-bold text-white leading-tight mb-6 relative;
 
-.hero-title span[class*="gradient"]::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px;
-  bottom: -2px;
-  left: 0;
-  background: linear-gradient(90deg, #f59e0b, #f97316);
-  transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-}
+  /* Define base font size using standard CSS */
+  font-size: 2.25rem; /* Equivalent to text-4xl */
+  line-height: 2.5rem; /* Line height for text-4xl */
 
-.hero-title:hover span[class*="gradient"]::after {
-  width: 100%;
-}
+  /* Add responsive sizes using standard CSS media queries */
+  @media (min-width: 768px) { /* Equivalent to md: breakpoint */
+    font-size: 3rem; /* Equivalent to text-5xl */
+    line-height: 1;    /* Line height for text-5xl */
+  }
+  @media (min-width: 1024px) { /* Equivalent to lg: breakpoint */
+    font-size: 3.75rem; /* Equivalent to text-6xl */
+    line-height: 1;     /* Line height for text-6xl */
+  }
 
-/* Attention-grabbing keywords in paragraph */
-.text-xl span.font-bold {
-  position: relative;
-  display: inline-block;
+  /* Keep your other custom styles */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.02em;
 }
+  /* Attention-grabbing keywords in paragraph */
+  .text-xl span.font-bold {
+    @apply relative inline-block;
+  }
 
-.text-xl span.font-bold::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background: currentColor;
-  transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
-}
+  .text-xl span.font-bold::after {
+    content: '';
+    @apply absolute w-0 h-[2px] bottom-[-2px] left-0 transition-[width] duration-300 ease-in-out;
+    background: currentColor; /* Keep currentColor */
+  }
 
-.text-xl:hover span.font-bold::after {
-  width: 100%;
-}
+  .text-xl:hover span.font-bold::after {
+     @apply w-full;
+  }
 
-/* Sequential animation for multiple keywords */
-.text-xl:hover span.font-bold:nth-child(1)::after {
-  transition-delay: 0.1s;
-}
+  /* Sequential animation for multiple keywords (Keep as is) */
+  .text-xl:hover span.font-bold:nth-child(1)::after {
+    transition-delay: 0.1s;
+  }
 
-.text-xl:hover span.font-bold:nth-child(2)::after {
-  transition-delay: 0.2s;
-}
-/* Pricing section styles */
+  .text-xl:hover span.font-bold:nth-child(2)::after {
+    transition-delay: 0.2s;
+  }
+
+  /* Find this rule inside @layer components and replace it */
 .pricing-container {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-12;
+  /* Apply non-responsive utilities */
+  @apply grid gap-6 py-12;
+
+  /* Base grid columns (mobile) */
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* Equivalent to grid-cols-1 */
+
+  /* Responsive grid columns */
+  @media (min-width: 768px) { /* md: */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Equivalent to md:grid-cols-2 */
+  }
+  @media (min-width: 1024px) { /* lg: */
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Equivalent to lg:grid-cols-3 */
+  }
+}
+  .pricing-card { /* Note: You might not be using this class directly anymore */
+    @apply bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-6 transition-all duration-300 hover:shadow-lg hover:transform hover:scale-[1.02];
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .pricing-card-premium { /* Note: You might not be using this class directly anymore */
+    @apply bg-gradient-to-br from-blue-500/30 to-purple-500/30 border-yellow-300/50 transform scale-[1.03];
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Button styles */
+  .cta-button { /* Note: You might not be using this class directly anymore */
+    @apply px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded-md text-center transition-all duration-300;
+  }
+
+  .cta-button-scale { /* Note: You might not be using this class directly anymore */
+    @apply px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded-md text-center transition-all duration-300 transform hover:scale-105;
+  }
+
+  /* Animated elements */
+  .call-to-action-animated { /* Note: You might not be using this class directly anymore */
+    @apply relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700;
+    animation: pulse 2s infinite; /* Keep custom animation */
+  }
+
+  /* Animation for content fade-in */
+  .content-container { /* Note: You might not be using this class directly anymore */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
 }
 
-.pricing-card {
-  @apply bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-6 transition-all duration-300 hover:shadow-lg hover:transform hover:scale-[1.02];
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+/* Import Tailwind CSS v4 properly */
+@import "tailwindcss";
+
+/* Define your layers */
+@layer base, components, utilities;
+
+/* Apply base styles */
+@layer base {
+  :root {
+    --background: #ffffff; /* Default light mode background */
+    --foreground: #171717; /* Default light mode text */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a; /* Dark mode background */
+      --foreground: #ededed; /* Dark mode text */
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+  }
 }
 
-.pricing-card-premium {
-  @apply bg-gradient-to-br from-blue-500/30 to-purple-500/30 border-yellow-300/50 transform scale-[1.03];
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+/* Custom components */
+@layer components {
+  .backdrop-blur-lg {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+
+  .hero-title {
+    font-weight: bold;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.02em;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+      line-height: 1;
+    }
+    
+    @media (min-width: 1024px) {
+      font-size: 3.75rem;
+      line-height: 1;
+    }
+  }
+
+  /* Other component styles... */
+  .pricing-container {
+    display: grid;
+    gap: 1.5rem;
+    padding: 3rem 0;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
 }
 
-/* Button styles */
-.cta-button {
-  @apply px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded-md text-center transition-all duration-300;
+/* Keyframes (keep outside layers) */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(147, 51, 234, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(147, 51, 234, 0); }
 }
 
-.cta-button-scale {
-  @apply px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded-md text-center transition-all duration-300 transform hover:scale-105;
-}
+/* Other keyframes... */
 
-/* Animated elements */
-.call-to-action-animated {
-  @apply relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700;
-  animation: pulse 2s infinite;
-}
-
+/* --- Custom Keyframes --- */
+/* Keep these outside @layer directives */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.5);
@@ -130,18 +232,6 @@ body {
   100% {
     box-shadow: 0 0 0 0 rgba(147, 51, 234, 0);
   }
-}
-
-/* Video button */
-.video-play-button {
-  @apply relative flex items-center justify-center w-16 h-16 rounded-full bg-white text-blue-600 transition-all duration-300 hover:bg-blue-50;
-  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-  animation: pulse-white 2s infinite;
-}
-
-.video-play-button::before {
-  content: '';
-  @apply absolute w-5 h-5 border-t-transparent border-t-8 border-l-16 border-l-blue-600 border-b-transparent border-b-8 ml-1;
 }
 
 @keyframes pulse-white {
@@ -156,7 +246,107 @@ body {
   }
 }
 
-/* Animation for content fade-in */
-.content-container {
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+/* Add the keyframes from previous steps if they aren't already here */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer utilities {
+  .glow-effect {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+    animation: pulse-glow 3s infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.3); }
+    100% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.7); }
+  }
+  
+  .sticker-float {
+    animation: sticker-float 8s ease-in-out infinite;
+  }
+  
+  @keyframes sticker-float {
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50% { transform: translateY(-30px) rotate(-8deg); }
+  }
+  
+  .sticker-float-delayed {
+    animation: sticker-float 10s ease-in-out infinite 1s;
+  }
+  
+  .select-arrow {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23f59e0b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+  }
+}
+
+@layer components {
+  .text-3d {
+    text-shadow: 
+      0 1px 0 #ccc, 
+      0 2px 0 #c9c9c9,
+      0 3px 0 #bbb,
+      0 4px 0 #b9b9b9,
+      0 5px 0 #aaa,
+      0 6px 1px rgba(0,0,0,0.1),
+      0 0 5px rgba(0,0,0,0.1),
+      0 1px 3px rgba(0,0,0,0.3),
+      0 3px 5px rgba(0,0,0,0.2),
+      0 5px 10px rgba(0,0,0,0.25);
+  }
+  
+  .dropdown-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .dropdown-shimmer::after {
+    content: "▼ Pay As You Go Options";
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: rgba(245, 158, 11, 0.7);
+    font-size: 0.75rem;
+    pointer-events: none;
+    animation: shimmer 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .sticker-effect {
+    filter: drop-shadow(0 10px 8px rgba(139, 92, 246, 0.3)) 
+            drop-shadow(0 4px 3px rgba(139, 92, 246, 0.2));
+    transition: all 0.5s ease;
+  }
+  
+  .sticker-effect:hover {
+    filter: drop-shadow(0 15px 10px rgba(139, 92, 246, 0.4)) 
+            drop-shadow(0 6px 5px rgba(139, 92, 246, 0.3));
+    transform: scale(1.05) rotate(-5deg);
+  }
 }
