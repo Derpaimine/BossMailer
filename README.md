@@ -43,6 +43,12 @@ This starter kit comes packed with essential features to get you up and running 
 
 ---
 
+![BossMailer Screenshot](https://github.com/ux-rsa/BossMailer/blob/main/Capture.JPG)
+*<p align="center">Responsive template to get you going fast!</p>*
+
+---
+---
+
 **Lets go!!**:  
 
 
