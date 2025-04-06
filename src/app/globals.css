@@ -193,7 +193,27 @@ body {
       line-height: 1;
     }
   }
+  .bg-clip-text {
+    font-weight: bold;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.02em;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
 
+    @media (min-width: 768px) {
+      font-size: 3rem;
+      line-height: 1;
+    }
+    
+    @media (min-width: 1024px) {
+      font-size: 3.75rem;
+      line-height: 1;
+    }
+  }
   /* Other component styles... */
   .pricing-container {
     display: grid;
@@ -348,5 +368,16 @@ body {
     filter: drop-shadow(0 15px 10px rgba(139, 92, 246, 0.4)) 
             drop-shadow(0 6px 5px rgba(139, 92, 246, 0.3));
     transform: scale(1.05) rotate(-5deg);
+  }
+}
+@layer utilities {
+  .spotlight-animation {
+    animation: spotlightMove 20s linear infinite;
+  }
+  
+  @keyframes spotlightMove {
+    0%, 100% { clip-path: circle(10% at 10% 20%); }
+    33% { clip-path: circle(12% at 90% 50%); }
+    66% { clip-path: circle(8% at 30% 80%); }
   }
 }
