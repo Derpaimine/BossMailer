@@ -1,4 +1,4 @@
-'use client'; // if using Next.js App Router
+'use client'; // if using Next.js App Router //Jordan Was here
 
 import { useEffect, useState } from 'react';
 import { getExchangeRate } from '../utils/getExchangeRate';
